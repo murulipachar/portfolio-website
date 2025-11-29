@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <h2 class="card-title mb-2">{{ project.title }}</h2>
+                {% if project.tech_stack %}
+                    <p class="text-muted small">Tech stack: {{ project.tech_stack }}</p>
+                {% endif %}
+                {% if project.github_link %}
+                    <p class="mb-1">
+                        <a href="{{ project.github_link }}" target="_blank">View on GitHub</a>
+                    </p>
+                {% endif %}
+                {% if project.live_link %}
+                    <p class="mb-3">
+                        <a href="{{ project.live_link }}" target="_blank">Live Demo</a>
+                    </p>
+                {% endif %}
+                <p style="white-space: pre-line;">{{ project.description }}</p>
+            </div>
+        </div>
+        <a href="{{ url_for('home') }}#projects" class="btn btn-link">&larr; Back to Projects</a>
+    </div>
+</div>
+
+{% endblock %}

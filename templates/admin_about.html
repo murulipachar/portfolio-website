@@ -1,0 +1,14 @@
+{% extends "admin_base.html" %}
+{% block content %}
+
+<h2 class="mb-3">Edit About Section</h2>
+
+<form method="POST" action="{{ url_for('admin_about') }}">
+    <div class="mb-3">
+        <label class="form-label">About Content</label>
+        <textarea name="content" rows="8" class="form-control">{{ about.content if about else "" }}</textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>
+
+{% endblock %}
